@@ -1,0 +1,145 @@
+===
+Object without operator prefixed
+===
+# is equivalent to `foo={bar=qux}`
+foo{bar=qux}
+---
+(source_file
+    (comment)
+    key: (plain)
+    value: (object
+        key: (plain)
+        value: (plain)))
+
+===
+Empty braces
+===
+discovered_by={}
+---
+(source_file
+    key: (plain)
+    value: (object))
+
+===
+Nested empty objects
+===
+history={{} {} 1629.11.10={core=AAA}}
+#---
+(source_file
+    key: (plain)
+    value: (object
+        key: (date_literal)
+        value: (object
+            key: (plain)
+            value: (plain))))
+
+===
+Object ambiguity
+===
+brittany_area = { #5
+    color = { 118  99  151 }
+    169 170 171 172 4384
+}
+
+===
+Non-alphanumeric scalars
+===
+flavor_tur.8=yes
+dashed-identifier=yes
+province_id = event_target:agenda_province
+@planet_standard_scale = 11
+
+
+===
+Interpolated expression
+===
+position_x = @[1-leo_x]
+
+===
+Non-ASCII
+===
+jean_jaurès = { }
+
+===
+Scalar has at least one character
+===
+# `=` is the key and `bar` is the value
+=="bar"
+
+===
+Empty string
+===
+name=""
+
+===
+Externally tagged array/object
+===
+color = rgb { 100 200 150 }
+color = hsv { 0.43 0.86 0.61 }
+color = hsv360{ 25 75 63 }
+color = hex { aabbccdd }
+mild_winter = LIST { 3700 3701 }
+
+===
+Nesting
+===
+a={b={c={a={b={c=1}}}}}
+
+
+===
+Save file header
+===
+EU4txt
+date=1444.12.4
+
+===
+Extraneous closing braces allowed
+===
+a = { 1 }
+}
+}
+}
+
+b = 2
+#---
+(source_file
+    key: (plain)
+    value: (array
+        (decimal))
+    key: (plain)
+    value: (decimal))
+
+===
+Missing closing braces allowed
+===
+a = { b=c
+
+===
+Ignore semi-colons at the end of lines
+===
+textureFile3 = "gfx//mapitems//trade_terrain.dds";
+
+===
+Operators
+===
+intrigue >= high_skill_rating
+age > 16
+count < 2
+scope:attacker.primary_title.tier <= tier_county
+a != b
+start_date == 1066.9.15
+---
+(source_file
+    key: (plain)
+    value: (plain)
+    key: (plain)
+    value: (integer_literal)
+    key: (plain)
+    value: (integer_literal)
+    key: (plain)
+    value: (plain)
+    key: (plain)
+    value: (plain)
+    key: (plain)
+    value: (date_literal))
+

@@ -1,0 +1,150 @@
+=========
+Integers
+=========
+
+a=1 b=1.000 c=-1
+-1=1337
+@my_var=-1.0
+
+---
+
+(source_file
+    key: (plain)
+    value: (integer_literal)
+    key: (plain)
+    value: (integer_literal)
+    key: (plain)
+    value: (integer_literal)
+    key: (integer_literal)
+    value: (integer_literal)
+    key: (variable
+        (plain))
+    value: (integer_literal)
+)
+
+=========
+Booleans
+=========
+ddd=yes
+eee=no
+@yes=yes
+
+---
+
+(source_file
+    key: (plain)
+    value: (bool_literal)
+    key: (plain)
+    value: (bool_literal)
+    key: (variable
+        (bool_literal))
+    value: (bool_literal))
+
+
+
+===
+Strings
+===
+
+fff="foo"
+hhh="a\"b"
+iii="\\"
+mmm="\\\""
+
+ooo="hello
+     world"
+
+---
+
+(source_file
+    key: (plain)
+    value: (string_literal)
+    key: (plain)
+    value: (string_literal
+        (string_escape))
+    key: (plain)
+    value: (string_literal
+        (string_escape))
+    key: (plain)
+    value: (string_literal
+        (string_escape)
+        (string_escape))
+    key: (plain)
+    value: (string_literal)
+)
+
+===
+Dates
+===
+
+g = 1821.1.1
+@172.31.30 = 1444.11.4
+
+---
+
+(source_file
+    key: (plain)
+    value: (date_literal)
+    key: (variable
+        (date_literal))
+    value: (date_literal))
+
+===
+Arrays
+===
+
+players_countries={
+    "Player"
+    "ENG"
+}
+
+---
+
+(source_file
+    key: (plain)
+    value: (array
+        (string_literal)
+        (string_literal)))
+
+===
+Objects
+===
+
+flags={
+    schools_initiated=1444.11.11
+    mol_polish_march=1444.12.4
+}
+
+---
+
+(source_file
+    key: (plain)
+    value: (object
+        key: (plain)
+        value: (date_literal)
+        key: (plain)
+        value: (date_literal)
+    )
+)
+
+===
+Scope
+===
+
+NOT = {
+    ROOT = {
+        triggered_modifier = "hello"
+        dumb = "nope"
+    }
+}
+
+---
+(source_file
+    key: (logic_scope)
+    value: (object
+        key: (dynamic_scope)
+        value: (object
+            key: (plain)
+            value: (string_literal)
+            key: (plain)
+            value: (string_literal))))
